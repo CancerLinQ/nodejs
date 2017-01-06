@@ -28,16 +28,16 @@ arch = if node['kernel']['machine'] =~ /armv6l/
          node['kernel']['machine'] =~ /x86_64/ ? 'x64' : 'x86'
        end
 
-# package_stub is for example: "node-v6.9.1-linux-x64.tar.xz"
+# package_stub is for example: "node-v6.9.1-linux-x64.tar.gz"
 version = "v#{node['nodejs']['version']}/"
 prefix = node['nodejs']['prefix_url'][node['nodejs']['engine']]
 
 if node['nodejs']['engine'] == 'iojs'
-  filename = "iojs-v#{node['nodejs']['version']}-linux-#{arch}.tar.xz"
+  filename = "iojs-v#{node['nodejs']['version']}-linux-#{arch}.tar.gz"
   archive_name = 'iojs-binary'
   binaries = ['bin/iojs', 'bin/node']
 else
-  filename = "node-v#{node['nodejs']['version']}-linux-#{arch}.tar.xz"
+  filename = "node-v#{node['nodejs']['version']}-linux-#{arch}.tar.gz"
   archive_name = 'nodejs-binary'
   binaries = ['bin/node']
 end
